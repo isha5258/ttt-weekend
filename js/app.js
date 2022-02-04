@@ -2,7 +2,8 @@
 const playerOne = "X"
 const playerTwo = "O"
 
-console.log()
+
+
 /*---------------------------- Variables (state) ----------------------------*/
 let isWinner, gameTie, guessSquare, playerOneGuesses, playerTwoGuesses, whoseTurn
 
@@ -45,7 +46,7 @@ init()
 
 function init (){
   //show empty squares
-  let boardArray = [null, null, null, null, null, null, null, null, null]
+  boardArray = [1, null, null, null, null, null, null, null, null]
   
   //starting turn
 let playerTurn = 1 // 1 is player "X" and 0 is player "O"
@@ -60,8 +61,43 @@ render()
 
 }
 
+function render(){
+  
+  let squarePlaceholder
+  
+    boardArray.forEach((square, idx) => {
+      if(square === 1 ){ 
+        squarePlaceholder = "x"
+      } else if(square === -1 ) {
+        squarePlaceholder = "o"
+      } else {
+        squarePlaceholder = null
+      }
+      
+    allSquares[idx].textContent = squarePlaceholder
+    console.log(squarePlaceholder);
+    
+    
+  })
+  renderWin()
+
+};
 
 function handleClick(evt){
-  console.log('click event')
+  console.log(evt.target)
 }
 
+function renderState(){
+
+  if(renderWin === "T") {
+    messageEl.textContent = "This one was a Scrath! Replay see who is better: X's or O's?"
+  } else {
+    messageEl.textContent = `Congratulations, ${Winner} you win!`
+  }
+}
+
+
+
+function renderWin(){
+
+}
