@@ -60,25 +60,30 @@ function render() {
   boardArray.forEach((square, idx) => {
     let squareColor
     let squareLetter
+    let boxShadow
     if (square === 1) {
-      squareColor = "red"
+      squareColor = "darkred"
       squareLetter = "X"
+      boxShadow = "0 0 10px red"
     } else if (square === -1) {
       squareColor = "blue"
       squareLetter = "O"
+      boxShadow = "0 0 10px blue"
     } else if (square === null) {
       squareColor = "white"
       squareLetter = null
     }
     allSquares[idx].style.color = squareColor
     allSquares[idx].innerText = squareLetter
+    allSquares[idx].style.textShadow = boxShadow
   })
 
 
   if (!isWinner){
     messageEl.innerText = `It is ${playerTurn === 1 ? "X's" : "O's"} turn`
+    messageEl.style.color = `${playerTurn === 1 ? "red" : "blue"}`
   } else if (isWinner === "T") {
-    messageEl.innerText = "This one was a Scrath! Replay see who is better: X's or O's?"
+    messageEl.innerText = "This one was a Scrath! Replay to see who is better: X's or O's?"
   } else {
     messageEl.textContent = `Congratulations, ${isWinner === 1 ? "X" : "O"} you win!`
   }
