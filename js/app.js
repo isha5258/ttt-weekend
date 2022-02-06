@@ -64,11 +64,11 @@ function render() {
     if (square === 1) {
       squareColor = "darkred"
       squareLetter = "X"
-      boxShadow = "0 0 10px red"
+      boxShadow = "0 0 12px indianred"
     } else if (square === -1) {
       squareColor = "blue"
       squareLetter = "O"
-      boxShadow = "0 0 10px blue"
+      boxShadow = "0 0 12px lightskyblue"
     } else if (square === null) {
       squareColor = "white"
       squareLetter = null
@@ -81,9 +81,12 @@ function render() {
 
   if (!isWinner){
     messageEl.innerText = `It is ${playerTurn === 1 ? "X's" : "O's"} turn`
-    messageEl.style.color = `${playerTurn === 1 ? "red" : "blue"}`
+    messageEl.style.color = `${playerTurn === 1 ? "darkred" : "blue"}`
+    messageEl.style.boxShadow = `${playerTurn === 1 ? "0 0 10px indianred" : " 0 0 10px blue"}`
   } else if (isWinner === "T") {
-    messageEl.innerText = "This one was a Scrath! Replay to see who is better: X's or O's?"
+    messageEl.innerText = "Cat's Game! Replay to see who is better: X's or O's?"
+    messageEl.style.color = 'black'
+    messageEl.style.boxShadow = "0 0 10px black"
   } else {
     messageEl.textContent = `Congratulations, ${isWinner === 1 ? "X" : "O"} you win!`
   }
