@@ -95,15 +95,12 @@ function render() {
 function handleClick(evt) {
   let squareIndex = parseInt(evt.target.id.replace('sq', ''))
 
-  // if (squareIndex === -1 || squareIndex === 1) {
-  //   return
-  // } else if (isWinner !== null) {
-  //   return
-  // }
-
-  if (boardArray[squareIndex] || isWinner) {
+  if (boardArray[squareIndex] === -1 || boardArray[squareIndex]  === 1) {
+    return
+  } else if (isWinner !== null) {
     return
   }
+
   replayBtn.removeAttribute("hidden")
   // this tells populates the index to the player that clicked: 1 or -1
   boardArray[squareIndex] = playerTurn
